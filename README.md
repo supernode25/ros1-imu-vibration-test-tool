@@ -24,7 +24,44 @@ ASD represents the amplitude distribution of a signal in the frequency domain an
 | **ASD Graph Characteristics** | Lower values in high frequencies (Less vibration/noise) | Higher values in high frequencies (More noise) |
 | **Confidence Interval** | Narrow (Consistent data distribution) | Wide (High variability in measurements) |
 
-## 5. Conclusion
+## 5. ROS1 Setup and Dependencies
+
+### Required Packages
+To run the ASD test script in ROS1, ensure the following dependencies are installed:
+
+#### 1. **ROS1 Core Packages**
+```bash
+sudo apt update
+sudo apt install ros-noetic-ros-base ros-noetic-sensor-msgs
+```
+(For GUI tools like RViz, install `ros-noetic-desktop-full` instead of `ros-base`)
+
+#### 2. **Python Libraries**
+```bash
+pip3 install numpy matplotlib scipy tf-transformations
+```
+- `numpy`: Numerical computations and array operations
+- `matplotlib`: Data visualization
+- `scipy`: Statistical analysis and FFT computation
+- `tf-transformations`: Quaternion to Euler angle conversion (ROS `tf` support for Python)
+
+#### 3. **ROS `tf` Package**
+Check if `tf` is installed:
+```bash
+roscd tf
+```
+If not installed, run:
+```bash
+sudo apt install ros-noetic-tf
+```
+
+#### 4. **Python3 ROS Environment Setup**
+```bash
+sudo apt install python3-catkin-tools python3-rosdep
+rosdep update
+```
+
+## 6. Conclusion
 - **ASD and confidence interval analysis provide an objective comparison of sensor performance.**
 - **High-frequency noise and confidence intervals are key indicators for selecting a reliable sensor.**
 - **Final evaluation is supported by graphical and quantitative metrics.**
